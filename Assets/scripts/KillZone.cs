@@ -19,17 +19,12 @@ public class KillZone : MonoBehaviour
 
     private void Respawn(Rigidbody rb)
     {
-        // 1. Zero out linear and angular speed
-        rb.linearVelocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
-
-        // 2. Fallback check if the collider wasn't assigned in the Inspector
+        rb.linearVelocity = Vector3.zero; rb.angularVelocity = Vector3.zero;
         if (spawnAreaCollider == null)
         {
             rb.position = new Vector3(0f, 2f, 0f);
             return;
         }
-
         // 3. Unity finds the point inside SpawnArea closest to where the ball dropped
         Vector3 fallPoint = rb.position;
         Vector3 closestSpawnPoint = spawnAreaCollider.ClosestPoint(fallPoint);

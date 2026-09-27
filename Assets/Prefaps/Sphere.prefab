@@ -14,6 +14,9 @@ GameObject:
   - component: {fileID: 142784652301367691}
   - component: {fileID: 1233840336701898385}
   - component: {fileID: 1848067334497699181}
+  - component: {fileID: -5008688036569216455}
+  - component: {fileID: -5322478271460069624}
+  - component: {fileID: -3609789184102767729}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -100,7 +103,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8888021990613727909}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: afeccec3a8125b64a91d4116fdbb8897, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -122,7 +125,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8888021990613727909}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 1.6
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -153,6 +156,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79caac660dba7644c8afc3d38788539f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerScript
-  rollTorque: 12
-  directForce: 12
+  rollTorque: 2
+  directForce: 30
   maxAngularVelocity: 25
+--- !u!114 &-5008688036569216455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8888021990613727909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e55178ec5e4b2046a6171d6e87504ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AutoTargetGroupMember
+  targetWeight: 1
+  targetRadius: 1.2
+--- !u!114 &-5322478271460069624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8888021990613727909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
+  m_Actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 1
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &-3609789184102767729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8888021990613727909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c75e8e25e8cc26f4e9ec22e449993e67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerSetup
+  ballRenderer: {fileID: 4393922230798471484}
