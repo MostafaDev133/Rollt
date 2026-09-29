@@ -6,11 +6,3 @@ public enum PowerUpCategory
     Hybrid,    // Mapped to e.g. Button East / B (Xbox) / Circle
     Event      // Mapped to e.g. Button North / Y (Xbox) / Triangle
 }
-
-[System.Serializable]
-public class PowerUpData
-{
-    public string powerUpName;
-    public PowerUpCategory category;
-    public Sprite icon;
-}

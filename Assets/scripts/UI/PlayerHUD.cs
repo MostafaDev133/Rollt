@@ -14,6 +14,12 @@ public class PlayerHUD : MonoBehaviour
     [SerializeField] private Image hybridIcon;
     [SerializeField] private Image eventIcon;
 
+    [Header("Slot Selection Outlines / Highlights")]
+    [SerializeField] private GameObject offensiveSelectBorder;
+    [SerializeField] private GameObject defensiveSelectBorder;
+    [SerializeField] private GameObject hybridSelectBorder;
+    [SerializeField] private GameObject eventSelectBorder;
+
     [Header("Defaults")]
     [SerializeField] private Sprite emptySlotSprite;
 
@@ -26,6 +32,7 @@ public class PlayerHUD : MonoBehaviour
             playerBadgeImage.color = playerColor;
 
         ClearAllSlots();
+        SetSelectedSlot(null);
     }
 
     public void UpdateSlot(PowerUpCategory category, Sprite icon)
@@ -41,8 +48,16 @@ public class PlayerHUD : MonoBehaviour
         else
         {
             targetImage.sprite = emptySlotSprite;
-            targetImage.color = new Color(1f, 1f, 1f, 0.2f); // Faded when empty
+            targetImage.color = new Color(1f, 1f, 1f, 0.2f);
         }
+    }
+
+    public void SetSelectedSlot(PowerUpCategory? selectedCategory)
+    {
+        if (offensiveSelectBorder != null) offensiveSelectBorder.SetActive(selectedCategory == PowerUpCategory.Offensive);
+        if (defensiveSelectBorder != null) defensiveSelectBorder.SetActive(selectedCategory == PowerUpCategory.Defensive);
+        if (hybridSelectBorder != null) hybridSelectBorder.SetActive(selectedCategory == PowerUpCategory.Hybrid);
+        if (eventSelectBorder != null) eventSelectBorder.SetActive(selectedCategory == PowerUpCategory.Event);
     }
 
     public void ClearAllSlots()

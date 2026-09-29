@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -5008688036569216455}
   - component: {fileID: -5322478271460069624}
   - component: {fileID: -3609789184102767729}
+  - component: {fileID: -1462079497610902696}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -216,3 +217,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSetup
   ballRenderer: {fileID: 4393922230798471484}
+--- !u!114 &-1462079497610902696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8888021990613727909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1382100650803140bde6ac2d2d9a400, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInventory
+  debugPowerUp: {fileID: 11400000, guid: 46fe764c1d48f52488896a8e1e8d9a36, type: 2}
