@@ -20,8 +20,10 @@ public class RepulsionWaveEmitter : MonoBehaviour
             EmitSinglePulse();
             yield return new WaitForSeconds(config.pulseInterval);
         }
-
-        // Clean up component when complete
+        if (TryGetComponent<PlayerInventory>(out var inventory))
+        {
+            inventory.SetPowerBusy(false);
+        }
         Destroy(this);
     }
 
@@ -43,6 +45,9 @@ public class RepulsionWaveEmitter : MonoBehaviour
         {
             // Skip self
             if (hit.attachedRigidbody == null || hit.attachedRigidbody == selfRb)
+                continue;
+
+            if (hit.attachedRigidbody.TryGetComponent<BallMovement>(out var movement) && movement.IsProtected)
                 continue;
 
             Rigidbody targetRb = hit.attachedRigidbody;
@@ -75,5 +80,10 @@ public class RepulsionWaveEmitter : MonoBehaviour
             Gizmos.color = Color.cyan;
             Gizmos.DrawWireSphere(transform.position, config.waveRadius);
         }
+    }
+    public void CancelWave()
+    {
+        StopAllCoroutines();
+        Destroy(this);
     }
 }

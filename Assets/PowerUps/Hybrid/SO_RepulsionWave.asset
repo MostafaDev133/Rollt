@@ -18,6 +18,6 @@ MonoBehaviour:
   totalWaves: 6
   pulseInterval: 0.5
   waveRadius: 12
-  baseForce: 7
+  baseForce: 8
   upwardLift: 0
   waveVfxPrefab: {fileID: 8241508010141808439, guid: dcfdab817bdc8ff488efe9c4dcd6a886, type: 3}

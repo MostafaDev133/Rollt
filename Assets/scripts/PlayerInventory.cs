@@ -10,6 +10,19 @@ public class PlayerInventory : MonoBehaviour
     private PowerUpCategory? currentlySelectedCategory = null;
     private PlayerHUD playerHUD;
 
+    [SerializeField] private PowerUpData debugPowerUp;
+
+    public bool IsFiringPower { get; private set; }
+
+    public void SetPowerBusy(bool busy)
+    {
+        IsFiringPower = busy;
+    }
+
+    public void ResetActivePower()
+    {
+        IsFiringPower = false;
+    }
     private void Start()
     {
         if (TryGetComponent<PlayerSetup>(out var setup))
@@ -17,8 +30,6 @@ public class PlayerInventory : MonoBehaviour
             playerHUD = setup.AssignedHUD;
         }
     }
-
-    [SerializeField] private PowerUpData debugPowerUp;
 
     private void Update()
     {
@@ -71,11 +82,17 @@ public class PlayerInventory : MonoBehaviour
     {
         Debug.Log($"--- OnFire received! Currently selected slot: {(currentlySelectedCategory.HasValue ? currentlySelectedCategory.Value.ToString() : "None")} ---");
         if (!value.isPressed) return;
+        // Block firing if another power is already running
+        if (IsFiringPower)
+        {
+            Debug.Log("Cannot fire: another power-up is active!");
+            return;
+        }
 
-        if (currentlySelectedCategory.HasValue &&
-            heldPowerUps.TryGetValue(currentlySelectedCategory.Value, out PowerUpData powerUp))
+        if (currentlySelectedCategory.HasValue && heldPowerUps.TryGetValue(currentlySelectedCategory.Value, out PowerUpData powerUp))
         {
             Debug.Log($"Firing power-up: {powerUp.powerUpName}!");
+            IsFiringPower = true;
             powerUp.Activate(gameObject);
             heldPowerUps.Remove(currentlySelectedCategory.Value);
 
