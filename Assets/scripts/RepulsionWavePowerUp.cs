@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "RepulsionWavePowerUp", menuName = "PowerUps/Hybrid/RepulsionWave")]
+// [CreateAssetMenu(fileName = "RepulsionWavePowerUp", menuName = "PowerUps/Hybrid/RepulsionWave")]
 public class RepulsionWavePowerUp : PowerUpData
 {
     [Header("Wave Settings")]
@@ -23,9 +23,9 @@ public class RepulsionWavePowerUp : PowerUpData
     [Header("Visual Effects")]
     public GameObject waveVfxPrefab;
 
-    public override void Activate(GameObject user)
+    public override void Activate(GameObject user) // understand this function
     {
-        base.Activate(user);
+        base.Activate(user); 
 
         // Attach an emitter to the user ball to execute the wave loop
         var emitter = user.AddComponent<RepulsionWaveEmitter>();

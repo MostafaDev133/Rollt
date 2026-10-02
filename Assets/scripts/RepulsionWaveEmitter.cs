@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-
 public class RepulsionWaveEmitter : MonoBehaviour
 {
     private RepulsionWavePowerUp config;
