@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RepulsionWavePowerUp
   powerUpName: Power-Up
   category: 2
-  icon: {fileID: 0}
-  totalWaves: 6
-  pulseInterval: 0.5
-  waveRadius: 12
-  baseForce: 8
+  icon: {fileID: 21300000, guid: beecae0a01f430b47a4313df933f7d4f, type: 3}
+  totalWaves: 12
+  pulseInterval: 0.25
+  waveRadius: 10
+  baseForce: 12
   upwardLift: 0
   waveVfxPrefab: {fileID: 8241508010141808439, guid: dcfdab817bdc8ff488efe9c4dcd6a886, type: 3}

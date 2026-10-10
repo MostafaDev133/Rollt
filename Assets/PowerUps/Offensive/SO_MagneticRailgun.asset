@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfd7f97ddd793cf44af740a2c8079746, type: 3}
+  m_Name: SO_MagneticRailgun
+  m_EditorClassIdentifier: Assembly-CSharp::MagneticRailgunPowerUp
+  powerUpName: Power-Up
+  category: 0
+  icon: {fileID: 21300000, guid: beecae0a01f430b47a4313df933f7d4f, type: 3}
+  totalChargeDuration: 1
+  slowdownRampDuration: 0.2
+  massMultiplier: 8
+  maxSteerAngle: 10
+  maxRange: 12
+  startHalfAngle: 50
+  endHalfAngle: 25
+  centerPullForce: 50
+  inwardPullForce: 0
+  blastForce: 90
+  blastUpwardLift: 12
+  recoilForce: 150
+  recoilUpwardLift: 55
+  coneVisualPrefab: {fileID: 6588681788056775865, guid: b35d36e2d04474542aeefab341c6b57f, type: 3}
+  blastVfxPrefab: {fileID: 0}

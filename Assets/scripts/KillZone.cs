@@ -14,6 +14,12 @@ public class KillZone : MonoBehaviour
             // Cancel active power emitters
             if (rb.TryGetComponent<RepulsionWaveEmitter>(out var emitter)) emitter.CancelWave();
             // Clear any inventory locks
+            if (rb.TryGetComponent<RepulsionWaveEmitter>(out var repEmitter))
+                repEmitter.CancelWave();
+
+            // Clean up Magnetic Railgun if charging
+            if (rb.TryGetComponent<MagneticRailgunEmitter>(out var railEmitter))
+                railEmitter.CancelPower();
             if (rb.TryGetComponent<PlayerInventory>(out var inventory)) inventory.ResetActivePower();
             Respawn(rb); // Teleport and grant spawn protection
         }

@@ -522,7 +522,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 45.953808
+  field of view: 60.000004
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -548,8 +548,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.27568254, y: 0.000000010930928, z: -0.000000003134949, w: 0.96124876}
-  m_LocalPosition: {x: 0, y: 10, z: -16}
+  m_LocalRotation: {x: 0.32595628, y: 0, z: 0, w: 0.94538486}
+  m_LocalPosition: {x: 0, y: 18, z: -23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -922,6 +922,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1020390801
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1020390802}
+  m_Layer: 0
+  m_Name: PowerUps_UI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1020390802
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1020390801}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.02594, y: 1, z: -5.0759}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1155390313
 GameObject:
   m_ObjectHideFlags: 3
@@ -933,6 +964,7 @@ GameObject:
   - component: {fileID: 1155390314}
   - component: {fileID: 1155390317}
   - component: {fileID: 1155390318}
+  - component: {fileID: 1155390319}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -994,6 +1026,28 @@ MonoBehaviour:
   m_BiasX: 0
   m_BiasY: 0
   m_CenterOnActivate: 1
+--- !u!114 &1155390319
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155390313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa7155796051b734daa718462081dc5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Cinemachine::Cinemachine.CinemachineTransposer
+  m_BindingMode: 4
+  m_FollowOffset: {x: 0, y: 18, z: -23}
+  m_XDamping: 1
+  m_YDamping: 1
+  m_ZDamping: 1
+  m_AngularDampingMode: 0
+  m_PitchDamping: 0
+  m_YawDamping: 0
+  m_RollDamping: 0
+  m_AngularDamping: 0
 --- !u!1 &1169457993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1041,7 +1095,10 @@ MonoBehaviour:
   m_PositionMode: 0
   m_RotationMode: 0
   m_UpdateMethod: 2
-  m_Targets: []
+  m_Targets:
+  - target: {fileID: 1810382462}
+    weight: 4
+    radius: 2
 --- !u!1 &1739471982
 GameObject:
   m_ObjectHideFlags: 0
@@ -1061,7 +1118,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1739471983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1311,7 +1368,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 1169457994}
-  m_Follow: {fileID: 0}
+  m_Follow: {fileID: 1169457994}
   m_Lens:
     FieldOfView: 60.000004
     OrthographicSize: 5
@@ -1339,8 +1396,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1953350329}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.27568254, y: 0, z: 0, w: 0.96124876}
-  m_LocalPosition: {x: 0, y: 10, z: -16}
+  m_LocalRotation: {x: 0.32595628, y: 0, z: 0, w: 0.94538486}
+  m_LocalPosition: {x: 0, y: 18, z: -23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1354,15 +1411,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1953350329}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4700f9f03ad19f94baf0367cb7a9c988, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Cinemachine::Cinemachine.CinemachineFollowZoom
-  m_Width: 16
+  m_Width: 18
   m_Damping: 1
-  m_MinFOV: 1
-  m_MaxFOV: 179
+  m_MinFOV: 11
+  m_MaxFOV: 124
 --- !u!114 &1953350333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1401,12 +1458,13 @@ SceneRoots:
   m_Roots:
   - {fileID: 1739471988}
   - {fileID: 330585546}
+  - {fileID: 1953350331}
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 1810382462}
   - {fileID: 895816863}
   - {fileID: 56589027}
   - {fileID: 1169457994}
-  - {fileID: 1953350331}
   - {fileID: 309816446}
   - {fileID: 84247921}
+  - {fileID: 1020390802}

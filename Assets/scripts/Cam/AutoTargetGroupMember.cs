@@ -4,7 +4,7 @@ using Cinemachine;
 public class AutoTargetGroupMember : MonoBehaviour
 {
     public float targetWeight = 1f;
-    public float targetRadius = 1.2f;
+    public float targetRadius = 200;
     private CinemachineTargetGroup targetGroup;
 
     private void Start()

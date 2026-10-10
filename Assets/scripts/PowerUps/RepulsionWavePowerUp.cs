@@ -1,6 +1,6 @@
 using UnityEngine;
 
-// [CreateAssetMenu(fileName = "RepulsionWavePowerUp", menuName = "PowerUps/Hybrid/RepulsionWave")]
+[CreateAssetMenu(fileName = "RepulsionWavePowerUp", menuName = "PowerUps/Hybrid/RepulsionWave")]
 public class RepulsionWavePowerUp : PowerUpData
 {
     [Header("Wave Settings")]

@@ -6,7 +6,7 @@ public class PlayerInventory : MonoBehaviour
     private readonly Dictionary<PowerUpCategory, PowerUpData> heldPowerUps = new Dictionary<PowerUpCategory, PowerUpData>(); // Understand this syntax, propably just making a variabl PowerUpCategory
     private PowerUpCategory? currentlySelectedCategory = null; //the ? is for accepting the null value.
     private PlayerHUD playerHUD;
-    [SerializeField] private PowerUpData debugPowerUp;
+    [SerializeField] private PowerUpData DebugOffense, DebugHybrid;
     public bool IsFiringPower { get; private set; }
 
     public void SetPowerBusy(bool busy)
@@ -26,14 +26,15 @@ public class PlayerInventory : MonoBehaviour
     private void Update()
     {
         // Temporary test key: Press 'T' or LP to grant the power-up to this ball
-        if ((Input.GetKeyDown(KeyCode.T) || (Input.GetKeyDown(KeyCode.JoystickButton4))) && debugPowerUp != null )
+        if (Input.GetKeyDown(KeyCode.T) || (Input.GetKeyDown(KeyCode.JoystickButton4)))
         {
-            AddPowerUp(debugPowerUp);
+           if (DebugHybrid != null) AddPowerUp(DebugHybrid);
+           if (DebugOffense != null) AddPowerUp(DebugOffense);
             Debug.Log("Granted test power-up!");
         }
     }
 
-    public bool AddPowerUp(PowerUpData powerUp) // why boolian? not just a void and use return instead of return bool?
+    public bool AddPowerUp(PowerUpData powerUp)
     {
         if (powerUp == null) return false;
         if (heldPowerUps.ContainsKey(powerUp.category)) return false; // If slot is occupied, ignore
@@ -103,17 +104,27 @@ public class PlayerInventory : MonoBehaviour
             playerHUD.SetSelectedSlot(null);
         }
     }
+    public bool TryGetPowerUpIcon(PowerUpCategory category, out Sprite icon)
+    {
+        if (heldPowerUps.TryGetValue(category, out PowerUpData powerUp) && powerUp.icon != null)
+        {
+            icon = powerUp.icon;
+            return true;
+        }
+        icon = null;
+        return false;
+    }
 
     // Face buttons now select the active slot
     public void OnUseOffensive(InputValue value)
     {
-        Debug.Log("--- OnUseOffensive received! Selecting Hybrid slot ---");
+        Debug.Log("--- OnUseOffensive received! Selecting offensive slot ---");
         if (value.isPressed) SelectSlot(PowerUpCategory.Offensive);
     }
 
     public void OnUseDefensive(InputValue value)
     {
-        Debug.Log("--- OnUseDefensive received! Selecting Hybrid slot ---");
+        Debug.Log("--- OnUseDefensive received! Selecting defensive slot ---");
         if (value.isPressed) SelectSlot(PowerUpCategory.Defensive);
     }
 
@@ -125,7 +136,7 @@ public class PlayerInventory : MonoBehaviour
 
     public void OnUseEvent(InputValue value)
     {
-        Debug.Log("--- OnUseEvent received! Selecting Hybrid slot ---");
+        Debug.Log("--- OnUseEvent received! Selecting event slot ---");
         if (value.isPressed) SelectSlot(PowerUpCategory.Event);
     }
 }

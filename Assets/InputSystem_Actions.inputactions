@@ -39,7 +39,7 @@
                     "id": "852140f2-7766-474d-8707-702459ba45f3",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "Hold",
+                    "interactions": "",
                     "initialStateCheck": false
                 },
                 {
@@ -64,6 +64,15 @@
                     "name": "UseEvent",
                     "type": "Button",
                     "id": "2776c80d-3c14-4091-8c56-d04ced07a2b0",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ToggleRadial",
+                    "type": "Button",
+                    "id": "2728ab7f-0a57-411c-a5d5-e4d58c9552bf",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -330,7 +339,7 @@
                     "path": "<XInputController>/buttonWest",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
+                    "groups": ";Gamepad",
                     "action": "UseOffensive",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -354,6 +363,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "UseDefensive",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "79573bee-9be2-419f-baa3-da3e18421e01",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "ToggleRadial",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
