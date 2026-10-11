@@ -881,6 +881,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: ba876ecd1b4d35247a65600e595c98ab, type: 2}
+  - {fileID: 2100000, guid: d73d9f589c8b402418665cc0320b79f8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -969,7 +970,6 @@ MonoBehaviour:
   maxAngularVelocity: 25
   extraGravity: 25
   protectionVisual: {fileID: 2221584870325982374}
-  ringSpinSpeed: 180
 --- !u!114 &-5008688036569216455
 MonoBehaviour:
   m_ObjectHideFlags: 0

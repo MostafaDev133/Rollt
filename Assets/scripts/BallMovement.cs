@@ -17,7 +17,6 @@ public class BallMovement : MonoBehaviour
     [Header("Visual Effects")]
     [Tooltip("Child GameObject showing the glowing purple protection ring")]
     [SerializeField] private GameObject protectionVisual;
-    [SerializeField] private float ringSpinSpeed = 180f;
 
     private void Awake()
     {
@@ -71,16 +70,6 @@ public class BallMovement : MonoBehaviour
 
         Debug.Log($"{name} spawn protection ended.");
     }
-
-    private void Update()
-    {
-        // Slowly spin the ring around the ball while protected
-        if (IsProtected && protectionVisual != null)
-        {
-            protectionVisual.transform.Rotate(Vector3.up, ringSpinSpeed * Time.deltaTime, Space.World);
-        }
-    }
-
     private void FixedUpdate()
     {
         if (IsProtected) return;
@@ -94,7 +83,6 @@ public class BallMovement : MonoBehaviour
 
         rb.AddForce(Vector3.down * extraGravity, ForceMode.Acceleration);
     }
-
     private void OnDisable()
     {
         if (rb != null) rb.constraints = RigidbodyConstraints.None;

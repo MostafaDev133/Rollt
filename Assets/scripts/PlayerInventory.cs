@@ -5,7 +5,7 @@ public class PlayerInventory : MonoBehaviour
 {
     private readonly Dictionary<PowerUpCategory, PowerUpData> heldPowerUps = new Dictionary<PowerUpCategory, PowerUpData>(); // Understand this syntax, propably just making a variabl PowerUpCategory
     private PowerUpCategory? currentlySelectedCategory = null; //the ? is for accepting the null value.
-    private PlayerHUD playerHUD;
+    //private PlayerHUD playerHUD;
     [SerializeField] private PowerUpData DebugOffense, DebugHybrid;
     public bool IsFiringPower { get; private set; }
 
@@ -20,7 +20,7 @@ public class PlayerInventory : MonoBehaviour
     }
     private void Start()
     {
-        if (TryGetComponent<PlayerSetup>(out var setup)) playerHUD = setup.AssignedHUD;
+        //if (TryGetComponent<PlayerSetup>(out var setup)) playerHUD = setup.AssignedHUD;
     }
 
     private void Update()
@@ -45,10 +45,10 @@ public class PlayerInventory : MonoBehaviour
             SelectSlot(powerUp.category);
         }
 
-        if (playerHUD != null)
-        {
-            playerHUD.UpdateSlot(powerUp.category, powerUp.icon);
-        }
+        //if (playerHUD != null)
+        //{
+        //    playerHUD.UpdateSlot(powerUp.category, powerUp.icon);
+        //}
         return true;
     }
 
@@ -56,10 +56,10 @@ public class PlayerInventory : MonoBehaviour
     {
         currentlySelectedCategory = category;
 
-        if (playerHUD != null)
-        {
-            playerHUD.SetSelectedSlot(currentlySelectedCategory);
-        }
+        //if (playerHUD != null)
+        //{
+        //    playerHUD.SetSelectedSlot(currentlySelectedCategory);
+        //}
     }
 
     // Fired by RB / RT / Spacebar
@@ -76,10 +76,10 @@ public class PlayerInventory : MonoBehaviour
             powerUp.Activate(gameObject);
             heldPowerUps.Remove(currentlySelectedCategory.Value);
 
-            if (playerHUD != null)
-            {
-                playerHUD.UpdateSlot(currentlySelectedCategory.Value, null);
-            }
+            //if (playerHUD != null)
+            //{
+            //    playerHUD.UpdateSlot(currentlySelectedCategory.Value, null);
+            //}
 
             // Auto-shift selection to another held item if available, (optional)
             AutoSelectNextAvailable();
@@ -99,10 +99,10 @@ public class PlayerInventory : MonoBehaviour
         }
 
         currentlySelectedCategory = null;
-        if (playerHUD != null)
-        {
-            playerHUD.SetSelectedSlot(null);
-        }
+        //if (playerHUD != null)
+        //{
+        //    playerHUD.SetSelectedSlot(null);
+        //}
     }
     public bool TryGetPowerUpIcon(PowerUpCategory category, out Sprite icon)
     {

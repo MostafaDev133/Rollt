@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class PlayerSetup : MonoBehaviour
 {
     int index; PlayerInput playerInput;
-    public PlayerHUD AssignedHUD { get; private set; }
+    //public PlayerHUD AssignedHUD { get; private set; }
     [SerializeField] private MeshRenderer ballRenderer;
     private static readonly Color[] PlayerColors = new Color[]
     {
@@ -25,6 +25,6 @@ public class PlayerSetup : MonoBehaviour
         Color assignedColor = (index >= 0 && index < PlayerColors.Length) ? PlayerColors[index] : Color.white;
         if (ballRenderer != null) ballRenderer.material.color = assignedColor; // assign the color only if the if the player have a Mesh Renderer
         // Spawn and bind the HUD for this specific player
-        if (HUDManager.Instance != null) AssignedHUD = HUDManager.Instance.CreatePlayerHUD(index, assignedColor);
+        //if (HUDManager.Instance != null) AssignedHUD = HUDManager.Instance.CreatePlayerHUD(index, assignedColor);
     }
 }

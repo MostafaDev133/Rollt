@@ -15,10 +15,7 @@ public class PlayerRadialUI : MonoBehaviour
     private PlayerInventory playerInventory;
     private PlayerInput playerInput;
     private InputAction radialAction;
-
-    [Header("UI Sprites & Placeholders")]
-    [Tooltip("Default icon or faint outline to show when a slot is empty (Optional)")]
-    [SerializeField] private Sprite[] emptySlotPlaceholder = new Sprite[5];
+    private Sprite[] emptySlotPlaceholder = new Sprite[5];
 
     private void Awake()
     {
@@ -39,7 +36,6 @@ public class PlayerRadialUI : MonoBehaviour
 
     private void OnEnable()
     {
-        // Find your input action by name (match whatever you named it in your Input Actions asset, e.g., "ToggleRadial")
         if (playerInput != null && playerInput.actions != null)
         {
             radialAction = playerInput.actions.FindAction("ToggleRadial");
@@ -65,10 +61,10 @@ public class PlayerRadialUI : MonoBehaviour
         if (radialCanvasObject != null && radialCanvasObject.activeSelf)
         {
             UpdateUIPosition();
+            RefreshRadialIcons();
         }
     }
 
-    // Fired instantly when LT is pressed down
     private void OnRadialPerformed(InputAction.CallbackContext context)
     {
         if (radialCanvasObject != null)
@@ -106,7 +102,7 @@ public class PlayerRadialUI : MonoBehaviour
         PowerUpCategory.Hybrid,
         PowerUpCategory.Event,
         PowerUpCategory.Passive
-    };
+        };
 
         for (int i = 0; i < slotIcons.Length && i < categories.Length; i++)
         {

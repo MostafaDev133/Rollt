@@ -18,12 +18,12 @@ MonoBehaviour:
   totalChargeDuration: 1
   slowdownRampDuration: 0.2
   massMultiplier: 8
-  maxSteerAngle: 10
-  maxRange: 12
+  maxSteerAngle: 50
+  maxRange: 8
   startHalfAngle: 50
   endHalfAngle: 25
   centerPullForce: 50
-  inwardPullForce: 0
+  inwardPullForce: 10
   blastForce: 90
   blastUpwardLift: 12
   recoilForce: 150
