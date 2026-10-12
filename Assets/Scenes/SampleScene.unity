@@ -1022,8 +1022,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PowerUpSpawner
   powerUpDatabase: {fileID: 11400000, guid: 52a3cf1f4d967de4ea444ed7bf2cd716, type: 2}
   pickupPodPrefab: {fileID: 8738842354142644211, guid: 699c31ae3ea263e4db2ccf8d83c05093, type: 3}
-  minSpawnTime: 10
-  maxSpawnTime: 20
+  minSpawnTime: 20
+  maxSpawnTime: 40
   offensiveWeight: 40
   defensiveWeight: 30
   hybridWeight: 20

@@ -1041,6 +1041,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInventory
   DebugOffense: {fileID: 11400000, guid: 7cf9004de67231147945936fd2ced753, type: 2}
   DebugHybrid: {fileID: 11400000, guid: 46fe764c1d48f52488896a8e1e8d9a36, type: 2}
+  DebugDefense: {fileID: 11400000, guid: 60969f62fee8c52478dbf1071ae4d293, type: 2}
 --- !u!114 &7660772976415931209
 MonoBehaviour:
   m_ObjectHideFlags: 0

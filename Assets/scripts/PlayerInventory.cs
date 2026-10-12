@@ -6,7 +6,7 @@ public class PlayerInventory : MonoBehaviour
     private readonly Dictionary<PowerUpCategory, PowerUpData> heldPowerUps = new Dictionary<PowerUpCategory, PowerUpData>(); // Understand this syntax, propably just making a variabl PowerUpCategory
     private PowerUpCategory? currentlySelectedCategory = null; //the ? is for accepting the null value.
     //private PlayerHUD playerHUD;
-    [SerializeField] private PowerUpData DebugOffense, DebugHybrid;
+    [SerializeField] private PowerUpData DebugOffense, DebugHybrid, DebugDefense;
     public bool IsFiringPower { get; private set; }
 
     public void SetPowerBusy(bool busy)
@@ -30,6 +30,7 @@ public class PlayerInventory : MonoBehaviour
         {
            if (DebugHybrid != null) AddPowerUp(DebugHybrid);
            if (DebugOffense != null) AddPowerUp(DebugOffense);
+           if (DebugDefense != null) AddPowerUp(DebugDefense);
             //Debug.Log("Granted test power-up!");
         }
     }

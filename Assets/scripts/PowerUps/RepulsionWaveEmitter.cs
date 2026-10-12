@@ -46,7 +46,7 @@ public class RepulsionWaveEmitter : MonoBehaviour
             if (hit.attachedRigidbody == null || hit.attachedRigidbody == selfRb)
                 continue;
 
-            if (hit.attachedRigidbody.TryGetComponent<BallMovement>(out var movement) && movement.IsProtected)
+            if (hit.attachedRigidbody.TryGetComponent<BallMovement>(out var movement) && movement.IsImmuneToPowers)
                 continue;
 
             Rigidbody targetRb = hit.attachedRigidbody;

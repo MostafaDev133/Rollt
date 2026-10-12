@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f53f9e8178fd9934cb6d6f39f21b9a56, type: 3}
+  m_Name: Power_Shield
+  m_EditorClassIdentifier: Assembly-CSharp::PowerShieldPowerUp
+  powerUpName: shield
+  category: 1
+  icon: {fileID: 21300000, guid: 50ee6572b375f01428516e3a1045be9b, type: 3}
+  duration: 5
+  waveRadius: 7
+  pushForce: 12
+  upwardLift: 3
+  shieldVisualPrefab: {fileID: 4748308296350591103, guid: 5adeaadf8ab97834d91a7d4dfac07cfb, type: 3}
+  pulseVfxPrefab: {fileID: 0}

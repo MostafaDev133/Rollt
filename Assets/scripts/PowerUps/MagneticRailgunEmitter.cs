@@ -131,7 +131,7 @@ public class MagneticRailgunEmitter : MonoBehaviour
             Rigidbody enemyRb = col.attachedRigidbody;
 
             // Ignore spawn-protected balls
-            if (enemyRb.TryGetComponent<BallMovement>(out var movement) && movement.IsProtected) continue;
+            if (enemyRb.TryGetComponent<BallMovement>(out var movement) && movement.IsImmuneToPowers) continue;
 
             Vector3 toEnemy = enemyRb.position - transform.position;
             toEnemy.y = 0f;
@@ -173,7 +173,7 @@ public class MagneticRailgunEmitter : MonoBehaviour
             if (col.attachedRigidbody == null || col.attachedRigidbody == selfRb) continue;
 
             Rigidbody enemyRb = col.attachedRigidbody;
-            if (enemyRb.TryGetComponent<BallMovement>(out var movement) && movement.IsProtected) continue;
+            if (enemyRb.TryGetComponent<BallMovement>(out var movement) && movement.IsImmuneToPowers) continue;
 
             Vector3 toEnemy = enemyRb.position - origin;
             toEnemy.y = 0f;
