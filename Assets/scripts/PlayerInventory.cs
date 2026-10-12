@@ -30,7 +30,7 @@ public class PlayerInventory : MonoBehaviour
         {
            if (DebugHybrid != null) AddPowerUp(DebugHybrid);
            if (DebugOffense != null) AddPowerUp(DebugOffense);
-            Debug.Log("Granted test power-up!");
+            //Debug.Log("Granted test power-up!");
         }
     }
 
@@ -65,13 +65,13 @@ public class PlayerInventory : MonoBehaviour
     // Fired by RB / RT / Spacebar
     public void OnFire(InputValue value)
     {
-        Debug.Log($"--- OnFire received! Currently selected slot: {(currentlySelectedCategory.HasValue ? currentlySelectedCategory.Value.ToString() : "None")} ---");
+        //Debug.Log($"--- OnFire received! Currently selected slot: {(currentlySelectedCategory.HasValue ? currentlySelectedCategory.Value.ToString() : "None")} ---");
         if (!value.isPressed) return; // if no power-up is selected
         if (IsFiringPower) return; // Block firing if another power is already running
 
         if (currentlySelectedCategory.HasValue && heldPowerUps.TryGetValue(currentlySelectedCategory.Value, out PowerUpData powerUp))
         {
-            Debug.Log($"Firing power-up: {powerUp.powerUpName}!");
+            //Debug.Log($"Firing power-up: {powerUp.powerUpName}!");
             IsFiringPower = true;
             powerUp.Activate(gameObject);
             heldPowerUps.Remove(currentlySelectedCategory.Value);
@@ -86,7 +86,7 @@ public class PlayerInventory : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Fire was pressed, but either no slot is selected or the selected slot is empty!");
+            //Debug.LogWarning("Fire was pressed, but either no slot is selected or the selected slot is empty!");
         }
     }
 
@@ -118,13 +118,13 @@ public class PlayerInventory : MonoBehaviour
     // Face buttons now select the active slot
     public void OnUseOffensive(InputValue value)
     {
-        Debug.Log("--- OnUseOffensive received! Selecting offensive slot ---");
+        //Debug.Log("--- OnUseOffensive received! Selecting offensive slot ---");
         if (value.isPressed) SelectSlot(PowerUpCategory.Offensive);
     }
 
     public void OnUseDefensive(InputValue value)
     {
-        Debug.Log("--- OnUseDefensive received! Selecting defensive slot ---");
+        //Debug.Log("--- OnUseDefensive received! Selecting defensive slot ---");
         if (value.isPressed) SelectSlot(PowerUpCategory.Defensive);
     }
 
@@ -136,7 +136,7 @@ public class PlayerInventory : MonoBehaviour
 
     public void OnUseEvent(InputValue value)
     {
-        Debug.Log("--- OnUseEvent received! Selecting event slot ---");
+        //Debug.Log("--- OnUseEvent received! Selecting event slot ---");
         if (value.isPressed) SelectSlot(PowerUpCategory.Event);
     }
 }

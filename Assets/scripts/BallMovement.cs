@@ -11,7 +11,9 @@ public class BallMovement : MonoBehaviour
     [Header("Physics Tuning")]
     public float rollTorque = 15f;
     public float directForce = 10f, maxAngularVelocity = 25f, extraGravity = 25f;
+    public bool IsShielded { get; private set; }
     public bool IsProtected { get; private set; }
+    public bool IsImmuneToPowers => IsProtected || IsShielded;
     private Coroutine protectionCoroutine;
 
     [Header("Visual Effects")]

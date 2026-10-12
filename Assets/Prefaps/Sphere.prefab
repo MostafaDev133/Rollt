@@ -839,7 +839,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2, z: 0}
-  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
+  m_LocalScale: {x: 1.8, y: 1.8, z: 1.8}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5012442431292964058}
@@ -965,10 +965,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79caac660dba7644c8afc3d38788539f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerScript
-  rollTorque: 15
+  rollTorque: 50
   directForce: 10
   maxAngularVelocity: 25
-  extraGravity: 25
+  extraGravity: 45
   protectionVisual: {fileID: 2221584870325982374}
 --- !u!114 &-5008688036569216455
 MonoBehaviour:
