@@ -20,4 +20,4 @@ MonoBehaviour:
   pushForce: 12
   upwardLift: 3
   shieldVisualPrefab: {fileID: 4748308296350591103, guid: 5adeaadf8ab97834d91a7d4dfac07cfb, type: 3}
-  pulseVfxPrefab: {fileID: 0}
+  pulseVfxPrefab: {fileID: 7358077630220999113, guid: 6b7783aee9528b54c86324cc1cdef92f, type: 3}

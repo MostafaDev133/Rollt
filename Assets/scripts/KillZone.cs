@@ -1,45 +1,66 @@
 using UnityEngine;
+
 public class KillZone : MonoBehaviour
-{       
+{
     [Header("Spawn Settings")]
-    [Tooltip("Drag your SpawnArea object here")]
     [SerializeField] private Collider spawnAreaCollider;
-    [Tooltip("Small lift so the ball doesn't spawn stuck in the floor")]
     [SerializeField] private float verticalOffset = 1.0f;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent<Rigidbody>(out Rigidbody rb))
         {
-            // Cancel active power emitters
+            // 1. Cancel active power emitters
             if (rb.TryGetComponent<RepulsionWaveEmitter>(out var emitter)) emitter.CancelWave();
-            // Clear any inventory locks
-            if (rb.TryGetComponent<RepulsionWaveEmitter>(out var repEmitter))
-                repEmitter.CancelWave();
-
-            // Clean up Magnetic Railgun if charging
-            if (rb.TryGetComponent<MagneticRailgunEmitter>(out var railEmitter))
-                railEmitter.CancelPower();
+            if (rb.TryGetComponent<MagneticRailgunEmitter>(out var railEmitter)) railEmitter.CancelPower();
+            //if (rb.TryGetComponent<PowerShieldEmitter>(out var ShieldEmitter)) ShieldEmitter.BreakShield();
             if (rb.TryGetComponent<PlayerInventory>(out var inventory)) inventory.ResetActivePower();
-            Respawn(rb); // Teleport and grant spawn protection
+
+            // 2. Process Knockout Attribution (Check who touched this ball within 2 seconds)
+            if (rb.TryGetComponent<BallTouchTracker>(out var touchTracker))
+            {
+                var attackers = touchTracker.GetValidAttackers();
+                foreach (var attackerRb in attackers)
+                {
+                    if (attackerRb.TryGetComponent<PlayerStats>(out var attackerStats))
+                    {
+                        attackerStats.RegisterPushKill();
+                    }
+                }
+            }
+
+            // 3. Register fall on the victim
+            if (rb.TryGetComponent<PlayerStats>(out var victimStats))
+            {
+                victimStats.RegisterFall();
+            }
+
+            // 4. Respawn
+            Respawn(rb, victimStats);
         }
     }
 
-    private void Respawn(Rigidbody rb)
+    private void Respawn(Rigidbody rb, PlayerStats victimStats)
     {
-        // Cancel any lingering protection/constraints before moving
         if (rb.TryGetComponent<BallMovement>(out var movement)) movement.EndSpawnProtection();
-        // Clear lingering velocities
-        rb.linearVelocity = Vector3.zero; rb.angularVelocity = Vector3.zero;
-        // Calculate target position
+
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+
         Vector3 targetPoint = Vector3.up * 2f;
         if (spawnAreaCollider != null) targetPoint = spawnAreaCollider.ClosestPoint(rb.position);
         targetPoint.y += verticalOffset;
-        // Force both Transform and Rigidbody to the new coordinates
-        rb.transform.position = targetPoint; rb.position = targetPoint;
-        // Tell PhysX to sync immediately so the new coordinates are locked in
+
+        rb.transform.position = targetPoint;
+        rb.position = targetPoint;
         Physics.SyncTransforms();
-        // Now apply protection constraints at the new location
+
+        // Check if victim earned their defensive comeback shield reward upon respawn
+        if (victimStats != null)
+        {
+            victimStats.CheckAndAwardComebackShield();
+        }
+
         if (movement != null) movement.ActivateSpawnProtection(3.0f);
     }
 }
